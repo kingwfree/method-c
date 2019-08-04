@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#define cutoff 2
 typedef int ElementType;
 
 void Swap(ElementType* a,ElementType* b){
@@ -8,6 +9,7 @@ void Swap(ElementType* a,ElementType* b){
 	*b = tmp;
 }
 
+//三分中值法
 void InsertSort(ElementType arr[],int len){
 	int i,j,tmp;
 	for (i=1;i<len;i++)
@@ -20,7 +22,6 @@ void InsertSort(ElementType arr[],int len){
 		arr[j] = tmp;
 	}
 }
-
 ElementType Median3(ElementType arr[],int left,int right){
 	int center = (left+right)/2;
 	if (arr[center] > arr[left])
@@ -33,9 +34,7 @@ ElementType Median3(ElementType arr[],int left,int right){
 	Swap(&arr[center],&arr[right-1]);
 	return arr[right-1];
 }
-
 void QuickSort(ElementType arr[],int left,int right){
-	int cutoff=2;
 	if (cutoff >= right-left){
 		ElementType pivot=Median3(arr,left,right),
 			i=left,
@@ -56,6 +55,7 @@ void QuickSort(ElementType arr[],int left,int right){
 	
 }
 
+//快排
 void quicksort(ElementType a[],int left,int right)
 {
 	int i,j,t,temp;
@@ -89,6 +89,8 @@ void quicksort(ElementType a[],int left,int right)
 	quicksort(a,i+1,right);//继续处理右边的，这里是一个递归的过程
 } 
 
+
+
 void Print(ElementType arr[],int len){
 	int i;
 	for (i=0;i<len;i++)
@@ -98,7 +100,7 @@ void Print(ElementType arr[],int len){
 }
 void main(){
 	ElementType arr[6]={5,6,8,4,9,3};
-	//quicksort(arr,0,7);
+	//quicksort(arr,0,5);
 	//Median3(arr,0,5);
 	QuickSort(arr,0,5);
 	Print(arr,6);

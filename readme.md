@@ -19,5 +19,5 @@ quicksort()				快排（取数组首项）
 
 B_Search()
 
-![](G:\MVVM1\sort.png)
+![](G:\method-c\pic\sort.png)
 
